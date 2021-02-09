@@ -2,7 +2,7 @@
 import odroid_wiringpi as wpi
 import time
 
-serial = wpi.serialOpen('/dev/ttySAC0', 115200)
+ser = wpi.serialOpen('/dev/ttySAC0', 115200)
 
 def getTFminiData():
     while True:
