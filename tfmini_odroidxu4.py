@@ -39,14 +39,16 @@ def getTFminiData():
 
 
 if __name__ == '__main__':
-    try:
-        if ser.is_open == False:
-            print("Serial not oppened")
-            ser.open()
-        getTFminiData()
-    except KeyboardInterrupt:   # Ctrl+C
-        if ser != None:
-            ser.close()
+    while(1):
+        try:
+            if ser.is_open == False:
+                print("Serial not oppened")
+                ser.open()
+            getTFminiData()
+        except KeyboardInterrupt:   # Ctrl+C
+            if ser != None:
+                ser.close()
+            return
 
 
 wpi.serialClose(serial)
