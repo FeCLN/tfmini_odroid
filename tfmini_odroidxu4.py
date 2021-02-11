@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 import odroid_wiringpi as wpi
 import time
+import serial
 
-ser = wpi.serialOpen('/dev/ttySAC0', 115200)
+ser = serial.Serial()
+ser.port = "/dev/ttySAC0" 
+ser.baudrate = 115200 
 
 def getTFminiData():
     while True:
@@ -38,6 +41,7 @@ def getTFminiData():
 if __name__ == '__main__':
     try:
         if ser.is_open == False:
+            print("Serial not oppened")
             ser.open()
         getTFminiData()
     except KeyboardInterrupt:   # Ctrl+C
